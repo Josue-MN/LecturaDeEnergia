@@ -1,10 +1,12 @@
 package com.example.lecturadeenergia.Screens
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -18,13 +20,26 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.lecturadeenergia.Firebase.Loggeo
 
 @Composable
 fun Login(){
+    //VAR ES PARA VARIABLES QUE CAMBIAN, VAL PAR ALAS QUE NO CAMBIAN
+
+    //BY REMEBER LE DICE QUE RECUERDE DICHA VARIABLE
+    //MUTABLESTATEOF CREA UNA VARIABLE CON MEMORIA EN BASE A UN STRING "", REMEMBER
     var usuario by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+
+    //VALOR DONDE SE MOSTRARAN LOS ERRORES COMO SI FUERA DISPENSABLE
+    val contextoDelLogin = LocalContext.current
+
+
     // --> SCAFFOLD ES EL MARCO SUPERIOR DE LA PANTALLA
     // --> PADDINGVALUES SON LOS VALORES O PARAMETROS PARA EL
     // ESTILO DE LA APP COMO UN CSS PARA MANEJAR LA PANTALLA
@@ -43,7 +58,7 @@ fun Login(){
                 text = "Acceso a Cuenta",
                 // --> MODIFIER PARA EL ESTILO DEL TEXTO
                 modifier = Modifier
-                    .padding(10.dp)
+                    .padding(horizontal = 10.dp)
                     .padding(bottom = 16.dp),
                 // --> FONTSIZE ES EL TAMAÑO DE LA LETRA
                 fontSize = 30.sp,
@@ -55,18 +70,61 @@ fun Login(){
                 // --> VALOR DE LA VARIABLE QUE SE MODIFICA CON EL VALUE Y IT
                 onValueChange = {usuario = it},
                 // --> LABEL ES LA ETIQUETA FANTSAMA QUE SE MUESTRA
-                label = { Text("Usuario") }
+                label = { Text("Usuario (example@gmail.com)") },
+                //SE LLAMA SOLO AL USO DE TECLADO DE EMAILS
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)
             )
             OutlinedTextField(
+                // --> VALUE ES EL TEXTO QUE SE DEBE MOSTRAR EN OUTLINEDTEXTFIELD
                 value = password,
+                // --> VALOR DE LA VARIABLE QUE SE MODIFICA CON EL VALUE Y IT
                 onValueChange = {password = it},
-                label = {Text("Password")}
+                // --> LABEL ES LA ETIQUETA FANTSAMA QUE SE MUESTRA
+                label = {Text("Contraseña")},
+                //OCULTA LA CONTRASEÑA POR CARACTERES NULOS
+                visualTransformation = PasswordVisualTransformation(),
+                //SE LLAMA SOLO AL USO DE TECLADO DE CONTRASEÑAS
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password)
             )
+            //BUTTON ES PARA CREAR UN BUTON
             Button(
+                //FUNCION QUE ESPERA A SER CLIKEADA
                 onClick = {
-                    println("Le diste al boton")
+                    //IF QUE VALIDA LOS NULOS DE LOS TIPOS
+                    if (usuario.isBlank() || password.isBlank()){
+                        //MUESTRA UN WIGET EMERGENTE CON TOAST EN PANTALLA CON MAKETEXT EN BASE AL VALUE CREADO ARRIBA
+                        //DE DURACION CORTA CON LENGTH_SHORT Y SE MUESTRA CON SHOW
+                        Toast.makeText(contextoDelLogin,
+                            "Asegurate de ingresar un usuario y contraseña.",
+                            Toast.LENGTH_SHORT).show()
+                    }
+                    //SI NO
+                    else{
+                        //LLAMA A LA FUNCION LOGGEO Y LE PASA LOS VALORES A SER USADOS
+                        Loggeo(
+                            usuario = usuario,
+                            password = password,
+                            //ONSUCCES LE PASA LA VARIABLE CARGO PARA HACER LA DIFERENCIA DE INTERFAZ
+                            onSuccess = { cargo ->
+                                //EL WIDGET EMERGENTE SE CREA CON TOAST, MAKETEXT MUSTRA EL TEXTO EMERGENTE
+                                //Y CON LENGTH_LONG HACE QUE EL MENSAJE SE DEMORE MAS EN DESAPARECER
+                                Toast.makeText(contextoDelLogin,
+                                    "Bienvenido a la app, $cargo",
+                                    Toast.LENGTH_LONG).show()
+                            },
+                            //ONERROR LE PASA LA VARIABLE DEL ERROR
+                            onError = { mensajeError ->
+                                //EL WIDGET EMERGENTE SE CREA CON TOAST, MAKETEXT MUSTRA EL TEXTO EMERGENTE
+                                //Y CON LENGTH_LONG HACE QUE EL MENSAJE SE DEMORE MAS EN DESAPARECER
+                                Toast.makeText(contextoDelLogin,
+                                    mensajeError,
+                                    Toast.LENGTH_LONG).show()
+                            }
+                        )
+                    }
                 }
             ) {
+                //ES EL TEXTO QUE APARECERA EN EL BOTON
                 Text("Iniciar sesion")
             }
         }
