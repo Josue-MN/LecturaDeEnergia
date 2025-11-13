@@ -22,10 +22,11 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.lecturadeenergia.Firebase.Loggeo
 
 @Composable
-fun Login(){
+fun LoginScreen(navegacionControlada: NavController){
     //VAR ES PARA VARIABLES QUE CAMBIAN, VAL PAR ALAS QUE NO CAMBIAN
 
     //BY REMEBER LE DICE QUE RECUERDE DICHA VARIABLE
@@ -108,6 +109,12 @@ fun Login(){
                                 Toast.makeText(contextoDelLogin,
                                     "Bienvenido a la app, $cargo",
                                     Toast.LENGTH_LONG).show()
+                                if (cargo == "administrador"){
+                                    navegacionControlada.navigate("home")
+                                }
+                                if (cargo == "basico"){
+                                    navegacionControlada.navigate("rangos")
+                                }
                             },
                             //ONERROR LE PASA LA VARIABLE DEL ERROR
                             onError = { mensajeError ->
