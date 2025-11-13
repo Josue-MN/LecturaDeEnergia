@@ -1,7 +1,6 @@
 package com.example.lecturadeenergia.Firebase
 
 import android.util.Log
-import androidx.compose.runtime.Composable
 import com.google.firebase.Firebase
 import com.google.firebase.database.database
 
