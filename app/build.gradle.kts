@@ -60,6 +60,8 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     // AÑADE biblioteca completa de iconos
     implementation("androidx.compose.material:material-icons-extended")
+    //AÑADE LA OPCION DE PODER USAR FOTOS EN LA APP
+    implementation("io.coil-kt:coil-compose:2.7.0")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

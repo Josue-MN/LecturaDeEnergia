@@ -100,7 +100,8 @@ fun LoginScreen(navegacionControlada: NavController){
                     else{
                         //LLAMA A LA FUNCION LOGGEO Y LE PASA LOS VALORES A SER USADOS
                         Loggeo(
-                            usuario = usuario,
+                            //SE APLICA QUE EL TEXTO SE VUELVA EN MINUSCULAS
+                            usuario = usuario.lowercase(),
                             password = password,
                             //ONSUCCES LE PASA LA VARIABLE CARGO PARA HACER LA DIFERENCIA DE INTERFAZ
                             onSuccess = { cargo ->
