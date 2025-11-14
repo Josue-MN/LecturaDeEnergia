@@ -86,6 +86,8 @@ fun LoginScreen(navegacionControlada: NavController){
             )
             //BUTTON ES PARA CREAR UN BUTON
             Button(
+                modifier = Modifier
+                    .padding(top = 8.dp),
                 //FUNCION QUE ESPERA A SER CLIKEADA
                 onClick = {
                     //IF QUE VALIDA LOS NULOS DE LOS TIPOS
