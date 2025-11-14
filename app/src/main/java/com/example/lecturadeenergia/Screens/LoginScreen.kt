@@ -26,7 +26,9 @@ import androidx.navigation.NavController
 import com.example.lecturadeenergia.Firebase.Loggeo
 
 @Composable
-fun LoginScreen(navegacionControlada: NavController){
+fun LoginScreen(
+    onLoginSuccess: (String) -> Unit
+    ){
     //VAR ES PARA VARIABLES QUE CAMBIAN, VAL PAR ALAS QUE NO CAMBIAN
 
     //BY REMEBER LE DICE QUE RECUERDE DICHA VARIABLE
@@ -110,14 +112,10 @@ fun LoginScreen(navegacionControlada: NavController){
                                 //EL WIDGET EMERGENTE SE CREA CON TOAST, MAKETEXT MUSTRA EL TEXTO EMERGENTE
                                 //Y CON LENGTH_LONG HACE QUE EL MENSAJE SE DEMORE MAS EN DESAPARECER
                                 Toast.makeText(contextoDelLogin,
-                                    "Bienvenido a la app, $cargo",
+                                    "Bienvenido a la app",
                                     Toast.LENGTH_LONG).show()
-                                if (cargo == "administrador"){
-                                    navegacionControlada.navigate("home")
-                                }
-                                if (cargo == "basico"){
-                                    navegacionControlada.navigate("rangos")
-                                }
+                                //VARIBLE FUNCION QUE PASA EL CARGO A LA NAVEGACIONCOPNROLADA
+                                onLoginSuccess(cargo)
                             },
                             //ONERROR LE PASA LA VARIABLE DEL ERROR
                             onError = { mensajeError ->
