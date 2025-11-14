@@ -13,7 +13,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.lecturadeenergia.Composables.BarraDeArriba
 import com.example.lecturadeenergia.Composables.BarraDeNavegacionDeBotones
 import com.example.lecturadeenergia.Screens.CortarScreen
-import com.example.lecturadeenergia.Screens.HistotialScreen
+import com.example.lecturadeenergia.Screens.HistorialScreen
 import com.example.lecturadeenergia.Screens.HomeScreen
 import com.example.lecturadeenergia.Screens.HorariosScreen
 import com.example.lecturadeenergia.Screens.LoginScreen
@@ -92,7 +92,7 @@ fun NavegacionControladaDeLaApp(){
             composable("login") { LoginScreen(navegacionControlada = navegacionControlada) }
             composable("home") { HomeScreen(navegacionControlada = navegacionControlada) }
             composable("rangos") { RangosScreen(navegacionControlada = navegacionControlada) }
-            composable("historial") { HistotialScreen(navegacionControlada = navegacionControlada) }
+            composable("historial") { HistorialScreen(navegacionControlada = navegacionControlada) }
             composable("cortar") { CortarScreen(navegacionControlada = navegacionControlada) }
             composable("horarios") { HorariosScreen(navegacionControlada = navegacionControlada) }
             }
