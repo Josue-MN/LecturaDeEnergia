@@ -2,11 +2,9 @@ package com.example.lecturadeenergia.Composables
 
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AvTimer
 import androidx.compose.material.icons.filled.Bolt
 import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Tune
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem

@@ -10,7 +10,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
@@ -75,7 +77,8 @@ fun CortarScreen(navegacionControlada: NavController){
         // --> EL MODIFIER SE LEE EN ORDEN
         Column(modifier = Modifier
             .padding(paddingValues) // MANEJA UN MARGEN PARA EL CONTENIDO
-            .fillMaxSize(), // EXPANDE EL MARGEN A TODA LA PANTALLA
+            .fillMaxSize()
+            .verticalScroll(rememberScrollState()),// EXPANDE EL MARGEN A TODA LA PANTALLA
             verticalArrangement = Arrangement.Center, //CENTRADO AL CENTRO VERTICAL
             horizontalAlignment = Alignment.CenterHorizontally //CENTRADO AL CENTRO HORIZONTAL
         ) {
@@ -85,10 +88,10 @@ fun CortarScreen(navegacionControlada: NavController){
                 // --> MODIFIER PARA EL ESTILO DEL TEXTO
                 modifier = Modifier
                     .padding(horizontal = 10.dp) //MANEJAA EL ESPACIO ENTRE UNAA PARED Y LO HORIZONTAL
-                    .padding(top = 10.dp) //MANEJAA EL ESPACIO ENTRE UNA PARED Y LO QUE ESTE ABAJO
-                    .fillMaxWidth() //EXPANDE EL MARGEN DE TEXTO HASTA ABAJO
+                    .padding(top = 10.dp), //MANEJAA EL ESPACIO ENTRE UNA PARED Y LO QUE ESTE ABAJO
+                    //.fillMaxWidth() //EXPANDE EL MARGEN DE TEXTO HASTA ABAJO
                     //.background(Color.Red)
-                    .aspectRatio(2f),  //HACE QUE LA ALTURA SEA IGUAL AL ANCHO
+                    //.aspectRatio(2f),  //HACE QUE LA ALTURA SEA IGUAL AL ANCHO
                 // --> FONTSIZE ES EL TAMAÑO DE LA LETRA
                 fontSize = 22.sp,
 
@@ -110,7 +113,7 @@ fun CortarScreen(navegacionControlada: NavController){
                 horizontalArrangement = Arrangement.Center,
                 modifier = Modifier
                     .padding(horizontal = 10.dp)
-                    .aspectRatio(2f),
+                    //.aspectRatio(2f),
             ) {
                 Text(
                     text = if (apagadoEncendido) "ENCENDIDO" else "APAGADO",

@@ -28,6 +28,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.lecturadeenergia.Firebase.LeerHistorialFirebase
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import com.example.lecturadeenergia.Firebase.ConfiguracionDeHistorial
 import com.example.lecturadeenergia.Firebase.formatoDeTimestamp
 
@@ -65,6 +67,7 @@ fun HistorialScreen(navegacionControlada: NavController){
             modifier = Modifier
                 .padding(paddingValues)
                 .fillMaxSize(),
+                //.verticalScroll(rememberScrollState()), //->NO SE PUEDE USAR UN SCROOL DENTRO DE UN SCROLL
             contentPadding = PaddingValues(12.dp) // Un margen para toda la lista
         ) {
             //AÑADE UN ELEMENTO A LA LISTA
@@ -74,8 +77,8 @@ fun HistorialScreen(navegacionControlada: NavController){
                     // --> MODIFIER PARA EL ESTILO DEL TEXTO
                     modifier = Modifier
                         .padding(horizontal = 10.dp) //MANEJAA EL ESPACIO ENTRE UNAA PARED Y LO HORIZONTAL
-                        .padding(top = 16.dp) //MANEJAA EL ESPACIO ENTRE UNA PARED Y LO QUE ESTE ABAJO
-                        .fillMaxWidth(), //HACE QUE LA EL TAMAÑO SEA MAXIMO
+                        .padding(top = 16.dp), //MANEJAA EL ESPACIO ENTRE UNA PARED Y LO QUE ESTE ABAJO
+                        //.fillMaxWidth(), //HACE QUE LA EL TAMAÑO SEA MAXIMO
                     // --> FONTSIZE ES EL TAMAÑO DE LA LETRA
                     fontSize = 22.sp,
 

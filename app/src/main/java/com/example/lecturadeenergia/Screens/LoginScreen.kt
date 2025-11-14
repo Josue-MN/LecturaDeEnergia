@@ -5,7 +5,9 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
@@ -22,7 +24,6 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
 import com.example.lecturadeenergia.Firebase.Loggeo
 
 @Composable
@@ -49,7 +50,8 @@ fun LoginScreen(
         // --> EL MODIFIER SE LEE EN ORDEN
         Column(modifier = Modifier
             .padding(paddingValues) // MANEJA UN MARGEN PARA EL CONTENIDO
-            .fillMaxSize(), // EXPANDE EL MARGEN A TODA LA PANTALLA
+            .fillMaxSize()
+            .verticalScroll(rememberScrollState()), // EXPANDE EL MARGEN A TODA LA PANTALLA
             verticalArrangement = Arrangement.Center, //CENTRADO AL CENTRO VERTICAL
             horizontalAlignment = Alignment.CenterHorizontally //CENTRADO AL CENTRO HORIZONTAL
         ) {
@@ -70,7 +72,7 @@ fun LoginScreen(
                 // --> VALOR DE LA VARIABLE QUE SE MODIFICA CON EL VALUE Y IT
                 onValueChange = {usuario = it},
                 // --> LABEL ES LA ETIQUETA FANTSAMA QUE SE MUESTRA
-                label = { Text("Usuario (example@gmail.com)") },
+                label = { Text("Usuario (ejemplo@gmail.com)") },
                 //SE LLAMA SOLO AL USO DE TECLADO DE EMAILS
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)
             )
