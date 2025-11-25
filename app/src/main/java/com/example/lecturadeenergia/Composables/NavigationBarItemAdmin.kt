@@ -35,10 +35,10 @@ fun BarraDeNavegacionDeBotonesAdmin(navegacionControlada: NavController){
         NavigationBarItem(
             //EL SELECT SIRVE PARA VER SI ESTA RUTA ES LA CORRECTA PARA SER FALSE O TRUE
             //CUANDO EL OBSERVADOR CREADO (RUTAACTUAL) PARA SABER A CUAL SE LLAMA
-            selected = (rutaActual == "homeAdmin"),
+            selected = (rutaActual == "home"),
             //LO QUE OCURRE CUANDO SE LLAMA AL BOTON(ONCLICK), SE LLAMA AL NAVCONTROLLER
             //PARA NAVEGAR(NAVIAGTE) A LA RUTA(")
-            onClick = { navegacionControlada.navigate("homeAdmin") },
+            onClick = { navegacionControlada.navigate("home") },
             //ICONO QUE APARECERA SEGUN IMPLEMENTACION(ICON) PARA TENER ICONOS PARA LA BARRA
             //CON ICONS, LO DEMAS ES DE DONDE SE SACARA
             icon = { Icon(Icons.Default.Home, "Home") },
@@ -49,10 +49,10 @@ fun BarraDeNavegacionDeBotonesAdmin(navegacionControlada: NavController){
         NavigationBarItem(
             //EL SELECT SIRVE PARA VER SI ESTA RUTA ES LA CORRECTA PARA SER FALSE O TRUE
             //CUANDO EL OBSERVADOR CREADO (RUTAACTUAL) PARA SABER A CUAL SE LLAMA
-            selected = (rutaActual == "rangosAdmin"),
+            selected = (rutaActual == "rangos"),
             //LO QUE OCURRE CUANDO SE LLAMA AL BOTON(ONCLICK), SE LLAMA AL NAVCONTROLLER
             //PARA NAVEGAR(NAVIAGTE) A LA RUTA(")
-            onClick = { navegacionControlada.navigate("rangosAdmin") },
+            onClick = { navegacionControlada.navigate("rangos") },
             //ICONO QUE APARECERA SEGUN IMPLEMENTACION(ICON) PARA TENER ICONOS PARA LA BARRA
             //CON ICONS, LO DEMAS ES DE DONDE SE SACARA
             icon = { Icon(Icons.Filled.Tune, "Rangos") },
@@ -63,10 +63,10 @@ fun BarraDeNavegacionDeBotonesAdmin(navegacionControlada: NavController){
         NavigationBarItem(
             //EL SELECT SIRVE PARA VER SI ESTA RUTA ES LA CORRECTA PARA SER FALSE O TRUE
             //CUANDO EL OBSERVADOR CREADO (RUTAACTUAL) PARA SABER A CUAL SE LLAMA
-            selected = (rutaActual == "historialAdmin"),
+            selected = (rutaActual == "historial"),
             //LO QUE OCURRE CUANDO SE LLAMA AL BOTON(ONCLICK), SE LLAMA AL NAVCONTROLLER
             //PARA NAVEGAR(NAVIAGTE) A LA RUTA(")
-            onClick = { navegacionControlada.navigate("historialAdmin") },
+            onClick = { navegacionControlada.navigate("historial") },
             //ICONO QUE APARECERA SEGUN IMPLEMENTACION(ICON) PARA TENER ICONOS PARA LA BARRA
             //CON ICONS, LO DEMAS ES DE DONDE SE SACARA
             icon = { Icon(Icons.Filled.History, "Historial") },
@@ -77,10 +77,10 @@ fun BarraDeNavegacionDeBotonesAdmin(navegacionControlada: NavController){
         NavigationBarItem(
             //EL SELECT SIRVE PARA VER SI ESTA RUTA ES LA CORRECTA PARA SER FALSE O TRUE
             //CUANDO EL OBSERVADOR CREADO (RUTAACTUAL) PARA SABER A CUAL SE LLAMA
-            selected = (rutaActual == "cortarAdmin"),
+            selected = (rutaActual == "cortar"),
             //LO QUE OCURRE CUANDO SE LLAMA AL BOTON(ONCLICK), SE LLAMA AL NAVCONTROLLER
             //PARA NAVEGAR(NAVIAGTE) A LA RUTA(")
-            onClick = { navegacionControlada.navigate("cortarAdmin") },
+            onClick = { navegacionControlada.navigate("cortar") },
             //ICONO QUE APARECERA SEGUN IMPLEMENTACION(ICON) PARA TENER ICONOS PARA LA BARRA
             //CON ICONS, LO DEMAS ES DE DONDE SE SACARA
             icon = { Icon(Icons.Filled.Bolt, "Cortar") },
@@ -91,10 +91,10 @@ fun BarraDeNavegacionDeBotonesAdmin(navegacionControlada: NavController){
         NavigationBarItem(
             //EL SELECT SIRVE PARA VER SI ESTA RUTA ES LA CORRECTA PARA SER FALSE O TRUE
             //CUANDO EL OBSERVADOR CREADO (RUTAACTUAL) PARA SABER A CUAL SE LLAMA
-            selected = (rutaActual == "horariosAdmin"),
+            selected = (rutaActual == "horarios"),
             //LO QUE OCURRE CUANDO SE LLAMA AL BOTON(ONCLICK), SE LLAMA AL NAVCONTROLLER
             //PARA NAVEGAR(NAVIAGTE) A LA RUTA(")
-            onClick = { navegacionControlada.navigate("horariosAdmin") },
+            onClick = { navegacionControlada.navigate("horarios") },
             //ICONO QUE APARECERA SEGUN IMPLEMENTACION(ICON) PARA TENER ICONOS PARA LA BARRA
             //CON ICONS, LO DEMAS ES DE DONDE SE SACARA
             icon = { Icon(Icons.Filled.AvTimer, "Horarios") },

@@ -33,10 +33,10 @@ fun BarraDeNavegacionDeBotonesBasico(navegacionControlada: NavController){
         NavigationBarItem(
             //EL SELECT SIRVE PARA VER SI ESTA RUTA ES LA CORRECTA PARA SER FALSE O TRUE
             //CUANDO EL OBSERVADOR CREADO (RUTAACTUAL) PARA SABER A CUAL SE LLAMA
-            selected = (rutaActual == "homeBasico"),
+            selected = (rutaActual == "home"),
             //LO QUE OCURRE CUANDO SE LLAMA AL BOTON(ONCLICK), SE LLAMA AL NAVCONTROLLER
             //PARA NAVEGAR(NAVIAGTE) A LA RUTA(")
-            onClick = { navegacionControlada.navigate("homeBasico") },
+            onClick = { navegacionControlada.navigate("home") },
             //ICONO QUE APARECERA SEGUN IMPLEMENTACION(ICON) PARA TENER ICONOS PARA LA BARRA
             //CON ICONS, LO DEMAS ES DE DONDE SE SACARA
             icon = { Icon(Icons.Default.Home, "Home") },
@@ -47,10 +47,10 @@ fun BarraDeNavegacionDeBotonesBasico(navegacionControlada: NavController){
         NavigationBarItem(
             //EL SELECT SIRVE PARA VER SI ESTA RUTA ES LA CORRECTA PARA SER FALSE O TRUE
             //CUANDO EL OBSERVADOR CREADO (RUTAACTUAL) PARA SABER A CUAL SE LLAMA
-            selected = (rutaActual == "historialBasico"),
+            selected = (rutaActual == "historial"),
             //LO QUE OCURRE CUANDO SE LLAMA AL BOTON(ONCLICK), SE LLAMA AL NAVCONTROLLER
             //PARA NAVEGAR(NAVIAGTE) A LA RUTA(")
-            onClick = { navegacionControlada.navigate("historialBasico") },
+            onClick = { navegacionControlada.navigate("historial") },
             //ICONO QUE APARECERA SEGUN IMPLEMENTACION(ICON) PARA TENER ICONOS PARA LA BARRA
             //CON ICONS, LO DEMAS ES DE DONDE SE SACARA
             icon = { Icon(Icons.Filled.History, "Historial") },
@@ -61,10 +61,10 @@ fun BarraDeNavegacionDeBotonesBasico(navegacionControlada: NavController){
         NavigationBarItem(
             //EL SELECT SIRVE PARA VER SI ESTA RUTA ES LA CORRECTA PARA SER FALSE O TRUE
             //CUANDO EL OBSERVADOR CREADO (RUTAACTUAL) PARA SABER A CUAL SE LLAMA
-            selected = (rutaActual == "cortarBasico"),
+            selected = (rutaActual == "cortar"),
             //LO QUE OCURRE CUANDO SE LLAMA AL BOTON(ONCLICK), SE LLAMA AL NAVCONTROLLER
             //PARA NAVEGAR(NAVIAGTE) A LA RUTA(")
-            onClick = { navegacionControlada.navigate("cortarBasico") },
+            onClick = { navegacionControlada.navigate("cortar") },
             //ICONO QUE APARECERA SEGUN IMPLEMENTACION(ICON) PARA TENER ICONOS PARA LA BARRA
             //CON ICONS, LO DEMAS ES DE DONDE SE SACARA
             icon = { Icon(Icons.Filled.Bolt, "Cortar") },

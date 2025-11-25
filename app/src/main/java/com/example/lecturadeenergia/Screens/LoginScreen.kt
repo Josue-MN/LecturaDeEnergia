@@ -24,12 +24,10 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.lecturadeenergia.Firebase.Loggeo
-
 @Composable
-fun LoginScreen(
-    onLoginSuccess: (String) -> Unit
-    ){
+fun LoginScreen(navegacionControlada: NavController){
     //VAR ES PARA VARIABLES QUE CAMBIAN, VAL PAR ALAS QUE NO CAMBIAN
 
     //BY REMEBER LE DICE QUE RECUERDE DICHA VARIABLE
@@ -114,10 +112,24 @@ fun LoginScreen(
                                 //EL WIDGET EMERGENTE SE CREA CON TOAST, MAKETEXT MUSTRA EL TEXTO EMERGENTE
                                 //Y CON LENGTH_LONG HACE QUE EL MENSAJE SE DEMORE MAS EN DESAPARECER
                                 Toast.makeText(contextoDelLogin,
-                                    "Bienvenido a la app",
+                                    "Bienvenido a la app, $cargo",
                                     Toast.LENGTH_LONG).show()
-                                //VARIBLE FUNCION QUE PASA EL CARGO A LA NAVEGACIONCOPNROLADA
-                                onLoginSuccess(cargo)
+                                if (cargo == "administrador"){
+                                    navegacionControlada.navigate("rutasDeUAdmin") {
+                                        // Esto borra la pantalla de Login del historial para que no pueda volver
+                                        // Asumiendo que la ruta de tu login se llama "login_screen"
+                                        popUpTo("login") {
+                                            inclusive = true
+                                        }
+                                    }
+                                }
+                                if (cargo == "basico"){
+                                    navegacionControlada.navigate("rutasDeUBasico"){
+                                        popUpTo("login"){
+                                            inclusive = true
+                                        }
+                                    }
+                                }
                             },
                             //ONERROR LE PASA LA VARIABLE DEL ERROR
                             onError = { mensajeError ->
