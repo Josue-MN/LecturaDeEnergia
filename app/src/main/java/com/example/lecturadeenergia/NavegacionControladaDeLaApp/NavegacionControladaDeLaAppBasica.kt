@@ -46,14 +46,12 @@ fun NavegacionControladaDeLaAppBasica(){
         "home" to "Inicio",
         "historial" to "Historial de Mediciones",
         "cortar" to "Control de Energía",
-    )[rutaActual] ?: "home" //ESTABLECE LA RUTA ACTUAL EN CASO DE ERRORES, COMO SI LA VARIABLE SE DEFINIERA POR DEFECTO
+    )[rutaActual] ?: "home" //ESTABLECE LA RUTA ACTUAL Y EN CASO DE ERRORES, COMO SI LA VARIABLE SE DEFINIERA POR DEFECTO
 
 
     // SE GENERA UNA VARIABLE QUE CUANDO LA RUTA SEA DISTINTA DE LOGIN
     // NO DEBE MOSTRARSE LA TOPBAR
     val mostrarBarras = rutaActual != "login"
-    //SE GENERA VARIABLE VACIA PARA EL CARGO
-    var cargoDelUsuario by rememberSaveable { mutableStateOf("") }
 
     // --> SCAFFOLD ES EL MARCO SUPERIOR DE LA PANTALLA
     // --> PADDINGVALUES SON LOS VALORES O PARAMETROS PARA EL

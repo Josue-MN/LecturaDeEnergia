@@ -14,17 +14,19 @@ import androidx.navigation.NavController
 //UN TITULO SE GENERA EL TITULODE LA APP QUE APARECRA ARRIBA DE LA APLICACION
 fun BarraDeArriba(
     tituloApp: String,
-    salirApp: NavController){
+    salirApp: NavController){ //ESPERA EL TIPO DE DATO NAVCONTROL PARA VOLVER AL LOGIN
     TopAppBar(
         title = {
             Text(tituloApp)
         },
         actions = {
+            //BUTON QUE GENERA LO SIGUIENTE APENAS ES CLICKEADO
             Button(onClick = {
+                //LOGICA DIRECTA CON FIREBASE QUE CIERRA LA SESION
                 com.google.firebase.auth.FirebaseAuth.getInstance().signOut()
 
-                salirApp.navigate("login") {
-                    popUpTo(0)
+                salirApp.navigate("login") { //TE LLEVA AL LOGIN
+                    popUpTo(0) //DESTRUYE EL HISTORIAL PARA QUE CUANDO QUIERA VOLVER ATRAS NO ME DEJE
                 }
             }) {
                 Text("Cerrar Sesion")

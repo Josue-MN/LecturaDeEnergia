@@ -55,8 +55,6 @@ fun NavegacionControladaDeLaAppAdmin(){
     // SE GENERA UNA VARIABLE QUE CUANDO LA RUTA SEA DISTINTA DE LOGIN
     // NO DEBE MOSTRARSE LA TOPBAR
     val mostrarBarras = rutaActual != "login"
-    //SE GENERA VARIABLE VACIA PARA EL CARGO
-    var cargoDelUsuario by rememberSaveable { mutableStateOf("") }
 
     // --> SCAFFOLD ES EL MARCO SUPERIOR DE LA PANTALLA
     // --> PADDINGVALUES SON LOS VALORES O PARAMETROS PARA EL

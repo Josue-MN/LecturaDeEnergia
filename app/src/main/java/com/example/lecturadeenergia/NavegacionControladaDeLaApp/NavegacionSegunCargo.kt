@@ -23,6 +23,7 @@ fun NavegacionSegunCargo(){
         //PARA QUE MUESTRE LA PANTALLA (LoginScreen(navegacionControlada = navegacionControlada) })
         // QUE CORRESPONDE SEGUN LOS VALORES QUE PIDE DICHA FUNCION
 
+        //RUTA DE LOGIN PARA VOLVER CUANDO SE CIERRE SESION
         composable("login") { LoginScreen(navegacionControlada = navegacionControlada) }
         //RUTAS ADMIN
         composable("rutasDeUAdmin") { NavegacionControladaDeLaAppAdmin() }
